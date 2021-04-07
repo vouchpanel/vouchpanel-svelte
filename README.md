@@ -18,19 +18,18 @@ Install with yarn (or `npm install`):
 yarn add @vouchpanel/svelte
 ```
 
-Include it as a module.
+Include it as a module.  Replace `id` with your wall id from [app.vouchpanel.com](https://app.vouchpanel.com).
 
 ```tsx
+// Component.svelte
+<script>
+	import Wall from '@vouchpanel/svelte/dist/index'
+</script>
 
-
-
+<Wall id="4" darkMode="off"></Wall>
 ```
 
-Add the following to the corresponding svelte template. Replace `id` with your wall id from [app.vouchpanel.com](https://app.vouchpanel.com).
-```tsx
-// *.component.html
-<Wall darkMode="off" id="4"></Wall>
-```
+If you are using `typescript`, you can import the typed component instead: `import Wall from @vouchpanel/svelte`.
 
 [project-url]: https://github.com/vouchpanel/vouchpanel-svelte
 [package-image]: https://img.shields.io/npm/v/@vouchpanel/svelte
@@ -47,9 +46,3 @@ Add the following to the corresponding svelte template. Replace `id` with your w
 [dev-dependencies-url]: https://www.npmjs.com/package/@vouchpanel/svelte
 [commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
 [commitizen-url]: http://commitizen.github.io/cz-cli
-
-## Consuming components
-
-Your package.json has a `"svelte"` field pointing to `src/index.ts`, which allows Svelte apps to import the source code directly, if they are using a bundler plugin like [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte) or [svelte-loader](https://github.com/sveltejs/svelte-loader) (where [`resolve.mainFields`](https://webpack.js.org/configuration/resolve/#resolve-mainfields) in your webpack config includes `"svelte"`). **This is recommended.**
-
-For everyone else, `npm run build` will bundle your component's source code into a plain JavaScript module (`dist/index.mjs`) and a UMD script (`dist/index.js`). This will happen automatically when you publish your component to npm, courtesy of the `prepublishOnly` hook in package.json.
