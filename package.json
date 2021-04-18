@@ -1,11 +1,12 @@
 {
   "name": "@vouchpanel/svelte",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "svelte": "src/index.ts",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
+    "readme": "cat _README.md > README.md && (curl https://raw.githubusercontent.com/vouchpanel/vouchpanel-site/main/docs/languages/svelte.md) >> README.md",
     "dev": "rollup -c -w",
     "svelte-check": "svelte-check",
     "build": "rollup -c",
